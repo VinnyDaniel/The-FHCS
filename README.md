@@ -1,1 +1,153 @@
 # The-FHCS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - WE MILAN</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login section -->
+  <div class="container" id="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Logo section (hidden initially) -->
+  <div class="logo-container" id="logo-container">
+    <!-- 👇 Replace "your-logo.png" with your uploaded logo file -->
+    <img src="your-logo.png" alt="App Logo" class="app-logo" />
+    <h1><b>Welcome to WE MILAN ✨</b></h1>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Login box */
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #6e8efb;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a777e3;
+}
+
+/* Logo section */
+.logo-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+.app-logo {
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  animation: zoomIn 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+h1 {
+  color: white;
+  font-size: 26px;
+  margin-top: 20px;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInText 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+/* Animations */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+ const loginForm = document.getElementById("login-form");
+const loginContainer = document.getElementById("login-container");
+const logoContainer = document.getElementById("logo-container");
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Hide login and show logo animation
+  loginContainer.style.opacity = "0";
+
+  setTimeout(() => {
+    loginContainer.style.display = "none";
+    logoContainer.style.display = "flex";
+  }, 600);
+});
