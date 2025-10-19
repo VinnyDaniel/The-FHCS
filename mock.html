@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><i>Smart Outfit Assistant</i></title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #1d104b;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    header {
+      background-color: #c71e56;
+      color: white;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    section {
+      background-color: white;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #1a1a1a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    .weather, .mood {
+      margin-top: 10px;
+    }
+
+    .output {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>WE MILAN - the world's your runway</header>
+
+<!-- 1. Scan Garments -->
+<section>
+  <h2>Scan Your Garments</h2>
+  <p>Upload a photo of your clothing and our AI will detect fabric, color, style, and categorize it.</p>
+  <input type="file" id="garmentUpload" accept="image/*">
+  <button onclick="scanGarment()">Scan Garment</button>
+  <div class="output" id="garmentResult">Garment details will appear here...</div>
+</section>
+
+<!-- 2. Weather Integration -->
+<section>
+  <h2>Weather Data</h2>
+  <p>Get real-time weather information to plan your outfit.</p>
+  <button onclick="getWeather()">Check Weather</button>
+  <div class="output weather" id="weatherResult">Weather info will appear here...</div>
+</section>
+
+<!-- 3. Mood-Based Suggestions -->
+<section>
+  <h2>Mood-Based Outfit Suggestions</h2>
+  <p>Detect your mood and receive outfit suggestions tailored to enhance it.</p>
+  <button onclick="getMoodSuggestion()">Get Suggestion</button>
+  <div class="output mood" id="moodResult">Outfit suggestions will appear here...</div>
+</section>
+
+<script>
+  // Mock function for garment scanning
+  function scanGarment() {
+    const result = document.getElementById('garmentResult');
+    const fileInput = document.getElementById('garmentUpload');
+    if(fileInput.files.length === 0) {
+      result.textContent = "Please upload a garment photo.";
+      return;
+    }
+    // Mock output
+    result.textContent = "Fabric: Cotton | Color: pastel | Style: Casual | Category: top";
+  }
+
+  // Mock function for weather data
+  function getWeather() {
+    const weatherDiv = document.getElementById('weatherResult');
+    // Mock data (you can later connect to OpenWeather API)
+    weatherDiv.textContent = "Temperature: 25°C | Humidity: 60% | Precipitation: 10% | UV Index: 5 | Wind: 15 km/h";
+  }
+
+  // Mock function for mood-based suggestion
+  function getMoodSuggestion() {
+    const moodDiv = document.getElementById('moodResult');
+    // Mock mood detection
+    const moods = ["Happy", "Sad", "Energetic", "Relaxed"];
+    const outfitSuggestions = {
+      "Happy": "Bright Yellow Dress or Shirt",
+      "Sad": "Comfortable Blue Hoodie and Jeans",
+      "Energetic": "formal wear",
+      "Relaxed": "Soft Pastel Lounge Wear"
+    };
+    const randomMood = moods[Math.floor(Math.random() * moods.length)];
+    moodDiv.textContent = `Mood detected: ${randomMood} | Suggested Outfit: ${outfitSuggestions[randomMood]}`;
+  }
+</script>
+
+</body>
+</html>
