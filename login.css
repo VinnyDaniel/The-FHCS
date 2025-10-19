@@ -1,4 +1,4 @@
-* {
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 body {
   font-family: Poppins, sans-serif;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(100deg,#0b1538ff,#e65340ff);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -36,6 +36,7 @@ input {
 button {
   width: 100%;
   padding: 10px;
+  margin-bottom: 15px; 
   background: #6e8efb;
   border: none;
   color: white;
@@ -59,11 +60,11 @@ button:hover {
 }
 
 .app-logo {
-  width: 120px;
-  height: 120px;
+  width: 230px;
+  height: 220px;
   opacity: 0;
-  animation: zoomIn 1s ease forwards;
-  animation-delay: 0.3s;
+  animation: zoomIn 0.5s ease forwards;
+  animation-delay: 0.5s;
 }
 
 h1 {
@@ -106,18 +107,4 @@ h1 {
   to {
     opacity: 1;
   }
- const loginForm = document.getElementById("login-form");
-const loginContainer = document.getElementById("login-container");
-const logoContainer = document.getElementById("logo-container");
-
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Hide login and show logo animation
-  loginContainer.style.opacity = "0";
-
-  setTimeout(() => {
-    loginContainer.style.display = "none";
-    logoContainer.style.display = "flex";
-  }, 600);
-});
+}
